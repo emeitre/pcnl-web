@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCNL | Philippine College of Northwestern Luzon</title>
+<link rel="icon" href="pcnl.png" type="image/png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --sky-blue: #87ceeb;
+      --primary-blue: #007bff;
+      --black: #000000;
+      --text-color: #333333;
+      --light-bg: #e6f2ff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: var(--sky-blue);
+      padding: 1rem;
+      border-bottom: 4px solid var(--primary-blue);
+    }
+
+    .navbar-brand, .nav-link {
+      color: var(--black) !important;
+      font-weight: 600;
+    }
+
+    .hero-section {
+      background: linear-gradient(to right, var(--sky-blue), var(--primary-blue));
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-blue);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    .carousel img {
+      border-radius: 15px;
+    }
+  #about .section-title {
+    font-size: 2.5rem;
+    color: #5C4033; /* Dark brown */
+  }
+
+  #about .carousel-inner img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  #about .carousel-inner img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+
+  #about .about-text {
+    text-align: justify;
+  }
+
+  #about .btn-outline-brown {
+    border: 2px solid #5C4033;
+    color: #5C4033;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #about .btn-outline-brown:hover {
+    background-color: #5C4033;
+    color: white;
+  }
+
+  @media (max-width: 767px) {
+    #about .section-title {
+      font-size: 2rem;
+    }
+    #about .carousel-inner img {
+      height: 250px;
+    }
+  }
+ .team-member-card {
+    background-color: #87CEEB; /* Sky Blue */
+    height: 100%; /* Ensures same height for all cards */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .team-member-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .team-member-info {
+    background-color: #ffffff; /* White background for text area */
+    flex-grow: 1; /* Ensures this area grows to fill space */
+  }
+
+  .social-icon {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    color: #007bff;
+  }
+
+  .team-member-info p {
+    margin: 0;
+  }
+
+  .team-member-card img {
+    object-fit: cover; /* Ensures images are properly scaled */
+    height: 200px; /* Fixed height for the image */
+  }
+  .news-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .news-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .news-card .card-img-top {
+    object-fit: cover;
+    height: 250px; /* Fixed image height */
+  }
+
+  .news-card .badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+  }
+
+  .news-card.horizontal-card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .news-card .card-body {
+    padding: 20px;
+  }
+
+  .news-card .d-flex {
+    justify-content: space-between;
+  }
+
+  .news-card h5 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .news-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Styling for the horizontal card image */
+  .news-card.horizontal-card .col-md-4 img {
+    border-radius: 12px 0 0 12px;
+  }
+
+  /* For adding hover effect on badges */
+  .news-card .badge:hover {
+    background-color: #ffcc00;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+     <a class="navbar-brand" href="#">
+  <img src="pcnl.png" alt="PCNL Logo" style="height: 100px; margin-right: 10px;">
+  <div style="display: inline-block; vertical-align: middle;">
+    <div style="font-weight: bold; font-size: 1.2em;">PHILIPPINE COLLEGE OF NORTHWESTERN LUZON</div>
+    <div style="font-size: 0.9em; color: #555;">San Antonio, Agoo, La Union</div>
+  </div>
+</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+	<li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Welcome to PCNL Agoo</h1>
+      <p class="lead">Shaping Futures with Golden Opportunities</p>
+      <a href="#courses" class="btn btn-light btn-lg">Explore Programs</a>
+    </div>
+  </header>
+<section id="about" class="section py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4" style="font-family: 'Arial', sans-serif; font-weight: bold; color: #5C4033;">About PCNL</h2>
+    <div class="row align-items-center">
+      <!-- Carousel Section -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img1.jpg" class="d-block w-100 rounded-3" alt="Campus 1">
+            </div>
+            <div class="carousel-item">
+              <img src="image3.jpg" class="d-block w-100 rounded-3" alt="Campus 2">
+            </div>
+            <div class="carousel-item">
+              <img src="image2.jpg" class="d-block w-100 rounded-3" alt="Campus 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Text Section -->
+      <div class="col-md-6">
+        <div class="about-text">
+          <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">PCNL Agoo provides a supportive academic atmosphere with exceptional programs and state-of-the-art facilities that promote well-rounded growth. Our dedicated faculty ensures a thorough educational experience, equipping students for future success. Be a part of our tradition of excellence, innovation, and positive community influence..</p>
+          <a href="#" class="btn btn-outline-brown mt-3" style="font-size: 1.1rem; padding: 10px 25px; border-radius: 30px;">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section id="services" class="section bg-white">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card p-4">
+            <i class="bi bi-mortarboard fs-1 text-primary"></i>
+            <h5 class="mt-3">Quality Education</h5>
+            <p>Offering top-tier academic programs guided by seasoned educators.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <i class="bi bi-building fs-1 text-primary"></i>
+            <h5 class="mt-3">Modern Facilities</h5>
+            <p>Equipped with state-of-the-art labs, libraries, and classrooms.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <i class="bi bi-globe fs-1 text-primary"></i>
+            <h5 class="mt-3">Global Readiness</h5>
+            <p>Programs that prepare students for the global stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="courses" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Our Programs</h2>
+      <p>PCNL Agoo offers competitive academic programs led by experienced faculty members.</p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="bsit.jpg" class="card-img-top" alt="Information Technology">
+          <div class="card-body">
+            <h5 class="card-title">Information Technology (IT)</h5>
+            <p class="card-text">Learn the fundamentals of computing, programming, and software development.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="bsba.png" class="card-img-top" alt="Business Administration">
+          <div class="card-body">
+            <h5 class="card-title">Business Administration (BSBA)</h5>
+            <p class="card-text">Get equipped with management, leadership, and entrepreneurship skills.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="bsc.png" class="card-img-top" alt="Criminology">
+          <div class="card-body">
+            <h5 class="card-title">Criminology (BSCRIM)</h5>
+            <p class="card-text">Study criminal behavior, law enforcement, and the justice system.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="bsa.png" class="card-img-top" alt="Accountancy">
+          <div class="card-body">
+            <h5 class="card-title">Accountancy (BSA)</h5>
+            <p class="card-text">Learn the principles of accounting, auditing, and taxation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="bee.png" class="card-img-top" alt="Bachelor of Education Elementary">
+          <div class="card-body">
+            <h5 class="card-title">Bachelor of Education Elementary (BEE)</h5>
+            <p class="card-text">Shaping young minds, building bright futures.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm rounded-3 h-100">
+          <img src="pcnl.png" class="card-img-top" alt="Civil Engineering">
+          <div class="card-body">
+            <h5 class="card-title">Bachelor of Science Civil Engineering (BSCE)</h5>
+            <p class="card-text"><strong>Coming Soon!</strong></p>
+            <p class="card-text">Explore the world of electrical systems, circuits, and power generation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="team" class="section-padding bg-light">
+  <div class="container">
+    <div class="text-center pb-5">
+      <h2 class="display-4">Meet Our Dedicated Team</h2>
+      <p class="lead">The people who bring PCNL's vision to life.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="team-member-card rounded">
+          <img src="faculty1.jpg" alt="Faculty Member 1" class="img-fluid rounded-top">
+          <div class="team-member-info p-4 text-center">
+            <h5 class="font-weight-bold">Byron Rivera</h5>
+            <p class="text-muted">Faculty 1</p>
+            <div class="socials mt-3">
+              <a href="#" class="social-icon">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="team-member-card rounded">
+          <img src="lex.jpg" alt="Faculty Member 2" class="img-fluid rounded-top">
+          <div class="team-member-info p-4 text-center">
+            <h5 class="font-weight-bold">Lexter Garcia</h5>
+            <p class="text-muted">Faculty 2</p>
+            <div class="socials mt-3">
+              <a href="#" class="social-icon">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="team-member-card rounded">
+          <img src="jhun.jpg" alt="Faculty Member 3" class="img-fluid rounded-top">
+          <div class="team-member-info p-4 text-center">
+            <h5 class="font-weight-bold">Jhun Ocampo</h5>
+            <p class="text-muted">Faculty 3</p>
+            <div class="socials mt-3">
+              <a href="#" class="social-icon">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Contact Us</h2>
+      <p>We are here to help and answer any question you might have.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Contact Info -->
+      <div class="col-md-6">
+        <h5><i class="bi bi-geo-alt-fill"></i> Address</h5>
+        <a href="https://www.facebook.com/profile.php?id=61551207150365" target="_blank" style="text-decoration: none; color: inherit;">
+  <p>San Antonio, Agoo, La Union</p>
+</a>
+
+        <h5><i class="bi bi-envelope-fill"></i> Email</h5>
+        <p>pcnl0406@gmail.com</p>
+        <h5><i class="bi bi-telephone-fill"></i> Phone</h5>
+        <p>(072) 607-0406</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="section-padding bg-light">
+  <div class="container">
+    <div class="text-center pb-5">
+      <h2 class="display-4">Campus News & Events</h2>
+      <p class="lead">Stay updated with the latest activities and events happening at PCNL.</p>
+    </div>
+    <div class="row g-4">
+     <!-- News Card 2 -->
+      <div class="col-md-6">
+        <div class="news-card">
+          <div class="position-relative">
+            <img src="dine.jpg" class="card-img-top rounded-3" alt="Chess Tournament">
+            <span class="badge bg-success text-white position-absolute top-0 start-0 m-3 rounded-pill px-3 py-1">Event</span>
+          </div>
+          <div class="p-3">
+            <h5 class="fw-bold">Inter-Collegiate Chess Championship</h5>
+            <p class="text-muted">The entries triumph in the school chess tournament with an undefeated score. Congratulations to all the talented players!
+</p>
+          </div>
+        </div>
+      </div>
+      <!-- News Card 1 -->
+      <div class="col-md-6">
+        <div class="news-card">
+          <div class="position-relative">
+            <img src="fire.jpg" class="card-img-top rounded-3" alt="Fire Prevention">
+            <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3 rounded-pill px-3 py-1">Safety</span>
+          </div>
+          <div class="p-3">
+            <h5 class="fw-bold">Fire Safety Awareness Campaign</h5>
+            <p class="text-muted">Join us in commemorating Fire Prevention Month with emergency drills and safety demonstrations, aimed at raising awareness and promoting fire safety.
+.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Card 2 -->
+      <div class="col-md-6">
+        <div class="news-card">
+          <div class="position-relative">
+            <img src="chess.jpg" class="card-img-top rounded-3" alt="Chess Tournament">
+            <span class="badge bg-success text-white position-absolute top-0 start-0 m-3 rounded-pill px-3 py-1">Sports</span>
+          </div>
+          <div class="p-3">
+            <h5 class="fw-bold">Inter-Collegiate Chess Championship</h5>
+            <p class="text-muted">The entries triumph in the school chess tournament with an undefeated score. Congratulations to all the talented players!
+</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="news-card">
+          <div class="position-relative">
+            <img src="pole.jpg" class="card-img-top rounded-3" alt="CWTS Performance">
+            <span class="badge bg-success text-white position-absolute top-0 start-0 m-3 rounded-pill px-3 py-1">Community</span>
+          </div>
+          <div class="p-3">
+            <h5 class="fw-bold">Inter-Collegiate Chess Championship</h5>
+                      <p class="text-muted">Students organize community clean-up and health awareness initiatives, contributing to the betterment of our community.
+.</p>
+
+          </div>
+        </div>
+      </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="footer">
+    <p>&copy; 2025 Philippine College of Northwestern Luzon - Agoo Campus. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
