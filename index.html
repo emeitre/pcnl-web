@@ -231,6 +231,25 @@
     background-color: #ffcc00;
     cursor: pointer;
   }
+/* Animation styles */
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 1.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
@@ -249,7 +268,10 @@
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+         <li class="nav-item">
+  <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+</li>
+
 	<li class="nav-item"><a class="nav-link" href="#news">News</a></li>
         </ul>
       </div>
@@ -294,6 +316,41 @@
     </div>
   </div>
 </section>
+
+<section id="vision-mission" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-in">
+      <h2 class="fw-bold text-uppercase text-primary">Vision & Mission</h2>
+      <p class="text-muted">What drives us forward</p>
+    </div>
+    <div class="row g-4">
+      <!-- Vision Card -->
+      <div class="col-md-6 animate-slide-up">
+        <div class="card shadow border-0 h-100 bg-white">
+          <div class="card-body">
+            <h4 class="card-title text-primary fw-semibold"><i class="bi bi-eye-fill me-2"></i>Vision</h4>
+            <p class="card-text mt-3">
+              To be a distinctive learning institution acknowledged far and wide for its innovative and flexible approaches in working with its students, stakeholders, and the community to create a more just and human society and a more sustainable economy.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Mission Card -->
+      <div class="col-md-6 animate-slide-up">
+        <div class="card shadow border-0 h-100 bg-white">
+          <div class="card-body">
+            <h4 class="card-title text-primary fw-semibold"><i class="bi bi-bullseye me-2"></i>Mission</h4>
+            <p class="card-text mt-3">
+              In support of its philosophy, PCNL mandates itself to provide advanced quality instruction to its clientele in education, the arts and humanities, the sciences, technology, business, and other related professional and technical fields; promote the advancement of knowledge through research; and help improve the quality of community life through extension work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <section id="services" class="section bg-white">
     <div class="container">
       <h2 class="section-title">Our Services</h2>
@@ -475,28 +532,36 @@
 </section>
 
 
-<section id="contact" class="py-5">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2>Contact Us</h2>
-      <p>We are here to help and answer any question you might have.</p>
-    </div>
-    <div class="row g-4">
-      <!-- Contact Info -->
-      <div class="col-md-6">
-        <h5><i class="bi bi-geo-alt-fill"></i> Address</h5>
-        <a href="https://www.facebook.com/profile.php?id=61551207150365" target="_blank" style="text-decoration: none; color: inherit;">
-  <p>San Antonio, Agoo, La Union</p>
-</a>
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="background-color: #e0f7ff; color: #000;">
+      <div class="modal-header" style="background-color: #007BFF; color: white;">
+        <h2 class="modal-title" id="contactModalLabel"><i class="bi bi-envelope-paper-heart-fill me-2"></i>Contact Us</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p class="text-center fw-semibold">We are here to help and answer any question you might have.</p>
+        <div class="row g-4">
+          <!-- Contact Info -->
+          <div class="col-md-6 mx-auto">
+            <h5 class="text-black"><i class="bi bi-geo-alt-fill me-2"></i>Address</h5>
+            <a href="https://www.facebook.com/profile.php?id=61551207150365" target="_blank" class="text-decoration-none text-dark">
+              <p>San Antonio, Agoo, La Union</p>
+            </a>
 
-        <h5><i class="bi bi-envelope-fill"></i> Email</h5>
-        <p>pcnl0406@gmail.com</p>
-        <h5><i class="bi bi-telephone-fill"></i> Phone</h5>
-        <p>(072) 607-0406</p>
+            <h5 class="text-black"><i class="bi bi-envelope-fill me-2"></i>Email</h5>
+            <p>pcnl0406@gmail.com</p>
+
+            <h5 class="text-black"><i class="bi bi-telephone-fill me-2"></i>Phone</h5>
+            <p>(072) 607-0406</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+
 
 <section id="news" class="section-padding bg-light">
   <div class="container">
